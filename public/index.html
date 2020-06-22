@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>File upload</title>
+    <meta name="file upload" content="busboy npm package" />
+    <meta name="MirSzabo" content="busboy" />
+    <link rel="stylesheet" href="./index.css" media="screen" />
+  </head>
+  <body>
+    <form method="POST" action="/upload" enctype="multipart/form-data">
+      <input
+        type="file"
+        name="fileToUpload"
+        id="fileToUpload"
+        accept=".pdf"
+        required
+      />
+      <button type="submit" name="submit">Upload file</button>
+    </form>
+  </body>
+</html>

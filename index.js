@@ -3,22 +3,13 @@ const Busboy = require("busboy");
 const fs = require("fs");
 const app = express();
 
-//middleware to serve static files
 app.use(express.static("public"));
 
-//file input element
 app.get("/", (req, res) => {
-  res.writeHead(200, { "Content-Type": "text/html" });
-  res.write(
-    '<form action="fileupload" method="post" enctype="multipart/form-data">'
-  );
-  res.write('<input type="file" name="filetoupload"><br>');
-  res.write('<input type="submit">');
-  res.write("</form>");
+  res.writeHead(200, {'Content-Type': 'text/plain'}).sendFile(__dirname + "/public/finish-upload.html");;
   return res.end();
 });
 
-//store file in the folder
 app.post("/fileupload", function (req, res) {
   const busboy = new Busboy({ headers: req.headers });
   busboy.on("file", function (fieldname, file, filename, encoding, mimetype) {
